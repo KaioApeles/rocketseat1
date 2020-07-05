@@ -73,20 +73,20 @@ app.post("/repositories/:id/like", (request, response) => {
     return response.status(400).json({error: "Project not found"});
   }
 
-  // const { likes } = repositories[projectIndex];
+  const { likes } = repositories[projectIndex];
   
-  // const project = {...repositories[projectIndex], 
-  //   likes: likes + 1
-  // }    
+  const project = {...repositories[projectIndex], 
+    likes: likes + 1
+  }    
   
-  // repositories[projectIndex] = project;
+  repositories[projectIndex] = project;
 
-  repositories[projectIndex] = {
-    ...repositories[projectIndex],
-    likes: (repositories[projectIndex].likes + 1)
-  }
+  // repositories[projectIndex] = {
+  //   ...repositories[projectIndex],
+  //   likes: (repositories[projectIndex].likes + 1)
+  // }
 
-  return response.status(200).json(repositories[projectIndex]);
+  return response.status(200).json(project);
 });
 
 module.exports = app;
