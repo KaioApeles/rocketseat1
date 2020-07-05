@@ -17,12 +17,18 @@ app.get("/repositories", (request, response) => {
 
 app.post("/repositories", (request, response) => {
   // TODO
-  const { title, url, techs, likes } = request.body;
-  const project = {id: uuid(), title, url, techs, likes};
+  const { title, url, techs } = request.body;
+  const project = {
+    id: uuid(), 
+    title, 
+    url, 
+    techs, 
+    likes: 0
+  }; 
 
   repositories.push(project);
 
-  return response.json(project);
+  return response.send(project);
 });
 
 app.put("/repositories/:id", (request, response) => {
