@@ -75,10 +75,18 @@ app.post("/repositories/:id/like", (request, response) => {
 
   const { likes } = repositories[projectIndex];
   
-  const project = {...repositories[projectIndex], 
-    likes: likes + 1
-  }    
+  // const project = {...repositories[projectIndex], 
+  //   likes: likes + 1
+  // }    
   
+  const project = {
+    id: id,
+    title: repositories[projectIndex].title,
+    url:   repositories[projectIndex].url,
+    techs: repositories[projectIndex].techs,
+    likes: likes + 1
+  }  
+
   repositories[projectIndex] = project;
 
   // repositories[projectIndex] = {
